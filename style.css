@@ -26,3 +26,9 @@ nav a {
     text-align: center;
     padding: 0.5em;
 }
+
+nav a.current {
+    border-bottom: 0.4em solid oklch(80% 3% 200);
+    padding-bottom: 0.1em;
+    font-weight: bold;
+}
