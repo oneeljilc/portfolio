@@ -7,3 +7,8 @@ body {
     margin-inline: auto;
     padding: 1.5rem 1rem;
 }
+
+nav ul,
+nav li {
+    display: contents;
+}
