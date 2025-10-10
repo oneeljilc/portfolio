@@ -37,3 +37,8 @@ nav a.current {
     padding-bottom: 0.1em;
     font-weight: bold;
 }
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.1em;
+}
