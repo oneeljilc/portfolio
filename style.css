@@ -14,9 +14,10 @@ nav li {
 }
 
 nav {
-    display: flex
+    display: flex;
 }
 
 nav a {
     flex: 1;
+    text-decoration: none;
 }
