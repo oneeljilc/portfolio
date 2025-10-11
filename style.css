@@ -55,4 +55,5 @@ button {
 
 label {
     display: block;
+    margin-block: 0.5rem 0.25rem;
 }
