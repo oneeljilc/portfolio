@@ -55,16 +55,10 @@ label {
     grid-template-columns: subgrid;
 }
 
-input,
-textarea,
-button {
-    font: inherit;
-}
-
 label input,
 label textarea {
     font: inherit;
-    width: 100%;
+    grid-column: 1 / -1;
 }
 
 button {
