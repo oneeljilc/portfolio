@@ -96,7 +96,7 @@ h6 {
 }
 
 h1 {
-    font-size: 400%;
+    font-size: 300%;
 }
 
 h2 {
@@ -117,34 +117,4 @@ h5 {
 
 h6 {
     font-size: 90%;
-}
-
-section {
-    margin-bottom: 2rem;
-}
-
-section article {
-    margin-bottom: 1rem;
-}
-
-time {
-    display: block;
-    font-style: italic;
-    margin-top: 0.25rem;
-}
-
-section#skills ul {
-    columns: 2;
-    column-gap: 2rem;
-    padding-left: 1.25rem;
-}
-
-section#skills li {
-    margin-bottom: 0.25rem;
-}
-
-section#publications article p {
-    text-indent: -1rem;
-    padding-left: 1rem;
-    margin-bottom: 0.75rem;
 }
