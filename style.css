@@ -46,6 +46,7 @@ nav a:hover {
 
 form {
     display: grid;
+    grid-template-columns: auto 1fr;
 }
 
 input,
