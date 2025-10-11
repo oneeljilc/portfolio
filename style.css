@@ -47,22 +47,25 @@ nav a:hover {
 form {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 1em;
+    gap: 1em 0.5em;
 }
 
 label {
     display: grid;
     grid-template-columns: subgrid;
+    grid-column: 1 / -1;
 }
 
-label :is(input, textarea) {
+label input, label textarea {
     font: inherit;
-    grid-column: 1 / -1;
+    grid-column: 2;
+    width: 100%;
 }
 
 button {
     grid-column: 1 / -1;
-    font: inherit
+    font: inherit;
+    width: 100%;
 }
 
 .projects {
