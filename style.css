@@ -49,3 +49,7 @@ textarea,
 button {
     font: inherit;
 }
+
+label {
+    display: block;
+}
