@@ -34,4 +34,8 @@ for (let p of pages) {
 const BASE_PATH =
   location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? '/' // Local server
-    : '/website/'; // GitHub Pages repo name
+    : 'https://oneeljilc.github.io/portfolio/'; // GitHub Pages repo name
+
+if (!url.startsWith('http')) {
+  url = BASE_PATH + url;
+}
