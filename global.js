@@ -53,3 +53,18 @@ for (let p of pages) {
 
     nav.append(a);
 }
+
+// Step 4 Dark Mode
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+    <label class="color-scheme">
+      Theme:
+      <select id="theme-select">
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>
+  `
+);
