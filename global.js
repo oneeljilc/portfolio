@@ -70,6 +70,9 @@ document.body.insertAdjacentHTML(
 );
 
 const select = document.querySelector('.color-scheme select')
+const root = document.documentElement
+
 select.addEventListener('input', function (event) {
+  root.style.setProperty('color-scheme', event.target.value);
   console.log('color scheme changed to', event.target.value);
 });
