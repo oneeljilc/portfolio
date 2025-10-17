@@ -5,10 +5,10 @@ function $$(selector, context = document) {
 }
 
 
-const navLinks = $$('nav a');
+// const navLinks = $$('nav a');
 
-let currentLink = navLinks.find(
-    (a) => a.host === location.host && a.pathname === location.pathname,
-);
+// let currentLink = navLinks.find(
+//     (a) => a.host === location.host && a.pathname === location.pathname,
+// );
 
-currentLink?.classList.add('current');
+// currentLink?.classList.add('current');
