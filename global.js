@@ -40,3 +40,8 @@ const BASE_PATH =
     : '/portfolio/'; // GitHub Pages repo name
 
 url = !url.startsWith('http') ? BASE_PATH + url : url
+
+// Step 3.2
+if (a.host === location.host && a.pathname === location.pathname) {
+  a.classList.add('current');
+}
