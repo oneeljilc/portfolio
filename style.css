@@ -1,6 +1,11 @@
 html {
     --color-accent: oklch(43.656% 0.12311 250.73);
     accent-color: var(--color-accent);
+
+    color-scheme: light dark;
+
+    background-color: Canvas;
+    color: CanvasText
 }
 
 body {
