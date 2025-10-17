@@ -4,6 +4,11 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
+const BASE_PATH =
+  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? '/' // Local server
+    : '/portfolio/'; // GitHub Pages repo name
+
 // Step: 2
 // const navLinks = $$('nav a');
 
@@ -28,20 +33,22 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
 
+    if (!url.startsWith('http')) {
+    url = BASE_PATH + url;
+    }
+
     let a = document.createElement('a'); // Step 3.2
     a.href = url;
     a.textContent = title;
+
+    if (a.host === location.host && a.pathname === location.pathname) {
+      a.classList.add('current');
+    }
+
+    if (a.host !== location.host) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
+
     nav.append(a);
-}
-
-const BASE_PATH =
-  location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? '/' // Local server
-    : '/portfolio/'; // GitHub Pages repo name
-
-url = !url.startsWith('http') ? BASE_PATH + url : url
-
-// Step 3.2
-if (a.host === location.host && a.pathname === location.pathname) {
-  a.classList.add('current');
 }
