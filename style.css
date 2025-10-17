@@ -233,3 +233,12 @@ dd {
   border-radius: 0.25em;
   font-size: 0.95rem;
 }
+
+/*--Dark Mode Switch--*/
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
