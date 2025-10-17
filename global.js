@@ -13,7 +13,7 @@ function $$(selector, context = document) {
 
 // currentLink?.classList.add('current');
 
-//Step 3:
+//Step 3.1:
 let pages = [
     { url: '', title: 'Home'},
     { url: 'projects/', title: 'Projects'},
@@ -28,11 +28,10 @@ for (let p of pages) {
     let url = p.url;
     let title = p.title;
 
-    let a = document.createElement('a');
+    let a = document.createElement('a'); // Step 3.2
     a.href = url;
     a.textContent = title;
     nav.append(a);
-
 }
 
 const BASE_PATH =
@@ -40,6 +39,4 @@ const BASE_PATH =
     ? '/' // Local server
     : '/portfolio/'; // GitHub Pages repo name
 
-if (!url.startsWith('http')) {
-  url = BASE_PATH + url;
-}
+url = !url.startsWith('http') ? BASE_PATH + url : url
