@@ -24,6 +24,7 @@ let pages = [
     { url: 'projects/', title: 'Projects'},
     { url: 'CV/', title: 'CV'},
     { url: 'contact/', title: 'Contact'},
+    { url: 'https://github.com/oneeljilc', title: 'GitHub'}
 ]
 
 let nav = document.createElement('nav');
