@@ -136,6 +136,12 @@ export function renderProjects(project, containerElement) {
   // Make loop to create new <article> for each project
   project.forEach(project => {
     const article = document.createElement('article');
+    article.innerHTML = `
+    <h3>${project.title}</h3>
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.description}</p>
+    `;
+    containerElement.appendChild(article);
   })
 }
 // Challenge Questions
@@ -148,3 +154,10 @@ export function renderProjects(project, containerElement) {
 // Think about it:
 //  - Q1/2: Why is it important to clear the container before adding new elements?
 //  - A1/2: Avoid duplicating old project when we want to update the list / add new projects
+//
+// Think about it:
+//  - Q1/2: Why do we use createElement instead of directly appending the HTML?
+//  - How does using createElement make your code more secure or modular?
+//  - A 1/2: Because we are now ingesting information from an external JSON, we want the code to be
+//  - flexible enough to support different ways we might want to decribe the projects. Also this prevents
+//  - someone from putting malicious code into out website through the JSON.
