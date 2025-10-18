@@ -114,8 +114,8 @@ export async function fetchJSON(url) {
   }
 }
 
-// Lab 4: Step 1.4
-export function renderProjects(project, containerElement) {
+// Lab 4: Step 1.5
+export function renderProjects(project, containerElement, headingLevel='h2') {
   // Check if containerElement is valid
   if (!(containerElement instanceof Element)) {
     console.error('renderProjects: Invalid container element:', containerElement);
@@ -135,7 +135,11 @@ export function renderProjects(project, containerElement) {
 
   // Make loop to create new <article> for each project
   project.forEach(project => {
-    const article = document.createElement('article');
+
+    const heading = document.createElement(headingLevel);
+    heading.textContent = project.title || 'Untitled project';
+    article.appendChild(heading);
+ 
     article.innerHTML = `
     <h3>${project.title}</h3>
     <img src="${project.image}" alt="${project.title}">
