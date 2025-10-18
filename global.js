@@ -103,6 +103,11 @@ export async function fetchJSON(url) {
       throw new Error(`Failed to fetch projects: ${response.statusText}`);
     }
     const data = await response.json();
+    // Add error message
+    if (!Array.isArray(data)) {
+      console.warn('Expected an array in JSON file, got:', data);
+      return null;
+    } 
     return data;
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
