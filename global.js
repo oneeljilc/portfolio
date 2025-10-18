@@ -113,3 +113,38 @@ export async function fetchJSON(url) {
     console.error('Error fetching or parsing JSON data:', error);
   }
 }
+
+// Lab 4: Step 1.4
+export function renderProjects(project, containerElement) {
+  // Check if containerElement is valid
+  if (!(containerElement instanceof Element)) {
+    console.error('renderProjects: Invalid container element:', containerElement);
+    return;
+  }
+  // Clear the containerElement
+  containerElement.innerHTML = '';
+ 
+ // Message if no projects
+  if (project.length === 0) {
+    const msg = document.createElement('p');
+    msg.textContent = 'No projects to display yet - check back soon!';
+    msg.classList.add('placeholder');
+    containerElement.appendChild(msg);
+    return;
+  }
+
+  // Make loop to create new <article> for each project
+  project.forEach(project => {
+    const article = document.createElement('article');
+  })
+}
+// Challenge Questions
+//  - Q1: What type of data should the project parameter contain?
+//  - A1: An array of project objects
+//
+//  - Q2: How would you test if the containerElement is valid?
+//  - A2: See above code for a check
+//
+// Think about it:
+//  - Q1/2: Why is it important to clear the container before adding new elements?
+//  - A1/2: Avoid duplicating old project when we want to update the list / add new projects
