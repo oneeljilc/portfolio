@@ -123,6 +123,11 @@ export function renderProjects(project, containerElement, headingLevel='h2') {
   }
   // Clear the containerElement
   containerElement.innerHTML = '';
+
+  // Validate input
+  if (!Array.isArray(project)) {
+    console.error('renderProjects: Expected an array, got:', project);
+  }
  
  // Message if no projects
   if (project.length === 0) {
@@ -135,6 +140,8 @@ export function renderProjects(project, containerElement, headingLevel='h2') {
 
   // Make loop to create new <article> for each project
   project.forEach(project => {
+    
+    const article = document.createElement('article');
 
     const heading = document.createElement(headingLevel);
     heading.textContent = project.title || 'Untitled project';
