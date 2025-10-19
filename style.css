@@ -246,25 +246,28 @@ dd {
 /*--Github Stats--*/
 #profile-stats dl {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* four equal columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.5em;
   text-align: center;
 }
 
-/* Place all <dt> in the first grid row */
 #profile-stats dt {
   grid-row: 1;
   font-weight: 600;
-  color: var(--canvastext, #333);
+  color: color-mix(in srgb, CanvasText 90%, white);
 }
 
-/* Place all <dd> in the second grid row */
 #profile-stats dd {
   grid-row: 2;
   margin: 0;
   font-size: 1.1em;
-  color: var(--canvastext, #555);
+  color: color-mix(in srgb, CanvasText 80%, white);
 }
+
+.github-stats h2 {
+  text-align: center;
+}
+
 /* Wrap Bio Text around pic */
 .profile-pic {
   float: left;
