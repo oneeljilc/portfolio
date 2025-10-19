@@ -148,20 +148,3 @@ export function renderProjects(project, containerElement, headingLevel='h2') {
     containerElement.appendChild(article);
   })
 }
-// Challenge Questions
-//  - Q1: What type of data should the project parameter contain?
-//  - A1: An array of project objects
-//
-//  - Q2: How would you test if the containerElement is valid?
-//  - A2: See above code for a check
-//
-// Think about it:
-//  - Q1/2: Why is it important to clear the container before adding new elements?
-//  - A1/2: Avoid duplicating old project when we want to update the list / add new projects
-//
-// Think about it:
-//  - Q1/2: Why do we use createElement instead of directly appending the HTML?
-//  - How does using createElement make your code more secure or modular?
-//  - A 1/2: Because we are now ingesting information from an external JSON, we want the code to be
-//  - flexible enough to support different ways we might want to decribe the projects. Also this prevents
-//  - someone from putting malicious code into out website through the JSON.
