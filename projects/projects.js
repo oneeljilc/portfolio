@@ -1,7 +1,18 @@
 import { fetchJSON, renderProjects } from '../global.js';
-const projects = await fetchJSON('../lib/projects.json');
-const projectsContainer = document.querySelector('.projects');
-renderProjects(projects, projectsContainer, 'h2');
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const projectsContainer = document.querySelector('.projects');
+    const projectsTitle = document.querySelector('.projects-title');
+    const projects = await fetchJSON('../lib/projects.json');
+    renderProjects(projects, projectsContainer, 'h3');
+
+    if (Array.isArray(projects)) {
+        const count = projects.length;
+        projectsTitle.textContent = `${count} Projects`;
+    } else {
+        projectsTitle.textContent = '0 Projects';
+    }
+});
 
 // Lab 4 Step 1.3 "Check Your Understanding"
 //
