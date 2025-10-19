@@ -242,3 +242,27 @@ dd {
   font-size: 80%;
   font-family: inherit;
 }
+
+/*--Github Stats--*/
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* four equal columns */
+  gap: 0.5em;
+  text-align: center;
+}
+
+/* Place all <dt> in the first grid row */
+#profile-stats dt {
+  grid-row: 1;
+  font-weight: 600;
+  color: var(--canvastext, #333);
+}
+
+/* Place all <dd> in the second grid row */
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--canvastext, #555);
+}
+
