@@ -23,34 +23,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 //d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 
 //Lab 5 Step 1.4
-let data = [1, 2];
-let total = 0;
-for (let d of data) {
-  total += d;
-}
-let angle = 0;
-let arcData = [];
-for (let d of data) {
-  let endAngle = angle + (d / total) * 2 * Math.PI;
-  arcData.push({ startAngle: angle, endAngle });
-  angle = endAngle;
-}
+//let data = [1, 2];
+//let total = 0;
+//for (let d of data) {
+//  total += d;
+//}
+//let angle = 0;
+//let arcData = [];
+//for (let d of data) {
+//  let endAngle = angle + (d / total) * 2 * Math.PI;
+//  arcData.push({ startAngle: angle, endAngle });
+//  angle = endAngle;
+//}
+//let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
+//let arcs = arcData.map((d) => arcGenerator(d));
+//let colors = ['gold', 'purple'];
+//arcs.forEach((arc, idx) => {
+//  d3.select('svg')
+//  .append('path')
+//  .attr('d', arc)
+//  .attr('fill', colors[idx])
+//});
+
+// Lab 5 Step 1.4 & 1.5 & 2.1
+//let data = [1, 2];
+//let data = [1, 2, 3, 4, 5, 5];
+let data = [
+  { value: 1, label: 'apples' },
+  { value: 2, label: 'oranges' },
+  { value: 3, label: 'mangos' },
+  { value: 4, label: 'pears' },
+  { value: 5, label: 'limes' },
+  { value: 5, label: 'cherries' },
+];
+//let sliceGenerator = d3.pie();
+let sliceGenerator = d3.pie().value((d) => d.value);
+let arcData = sliceGenerator(data);
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let arcs = arcData.map((d) => arcGenerator(d));
-
-const svg = d3.select('#projects-pie-plot');
-
-arcs.forEach((arc, i) => {
-  svg.append('path')
+//let colors = ['gold', 'purple'];
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
+arcs.forEach((arc, idx) => {
+  d3.select('svg')
+  .append('path')
   .attr('d', arc)
-  .attr('fill', 'red')
+  .attr('fill', colors(idx))
 });
-
-// Lab 4 Step 1.3 "Check Your Understanding"
-//
-//  - Q1: What happens if the projects.json file is missing or incorrectly formatted?
-//  - A1: The error is displayed: "Error fetching or parsing JSON data:"
-//
-//  - Q2: How does the renderProjects function handle an empty array of projects?
-//  - A2: Nothing will be displayed on the Projects page. Also no error message.
-//      See updated global.js file for a placeholder message
