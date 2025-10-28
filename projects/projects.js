@@ -92,5 +92,20 @@ data.forEach((d, idx) => {
     .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
 });
 
-//Lab 5 Step 4.1
+//Lab 5 Step 4.1 & 4.2
 let query = '';
+let searchInput = document.querySelector('.searchBar');
+
+searchInput.addEventListener('input', (event) => {
+    // update query value
+    query = event.target.value.toLowerCase();
+    // TODO: filter the projects
+    let filteredProjects = projects.filter((project) => {
+        let values = Object.values(project).join('\n').toLowerCase();
+        return values.includes(query.toLowerCase());
+    });
+
+    // TODO: render updated projects!
+    let container = document.querySelector('.projects');
+    renderProjects(filteredProjects, container);
+});
