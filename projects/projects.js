@@ -1,3 +1,4 @@
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 import { fetchJSON, renderProjects } from '../global.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -13,6 +14,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         projectsTitle.textContent = '0 Projects';
     }
 });
+
+let arc = d3.arc().innerRadius(0).outerRadius(50)({
+  startAngle: 0,
+  endAngle: 2 * Math.PI,
+});
+
+d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
 
 // Lab 4 Step 1.3 "Check Your Understanding"
 //
