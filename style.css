@@ -299,3 +299,45 @@ dd {
 
   overflow: visible;
 }
+
+/*Lab 5 Step 2.2: Style Legend*/
+/* Style the overall legend container */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr)); /* flexible layout */
+  gap: 0.5em;                         /* space between legend items */
+  padding: 1em;
+  margin: 1.0em 0;
+  border: 1px solid var(--color-neutral-70, #ccc);
+  border-radius: 0.5em;
+  background: var(--color-neutral-95, #f9f9f9);
+  list-style: none;                 /* remove bullets */
+}
+
+/* Style each legend item (<li>) */
+.legend-item {
+  display: flex;                    /* place swatch and text on one line */
+  align-items: center;              /* vertically align swatch and label */
+  gap: 0.5em;                       /* space between swatch and text */
+  font-size: 0.95em;
+  line-height: 1.2;
+}
+
+/* The color swatch itself */
+.legend-item .swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  aspect-ratio: 1 / 1;              /* ensures perfect square */
+  background-color: var(--color);   /* color set dynamically by D3 */
+  border-radius: 3px;               /* slightly rounded corners */
+  flex-shrink: 0;                   /* keep consistent size */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15); /* subtle depth */
+}
+
+/* Make labels lighter */
+.legend-item em {
+  font-style: normal;
+  color: var(--color-neutral-40, #666);
+  font-size: 0.9em;
+}
