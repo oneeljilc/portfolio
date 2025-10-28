@@ -312,8 +312,9 @@ dd {
   border-radius: 0.5em;
   background: var(--color-neutral-95, #f9f9f9);
   list-style: none;                 /* remove bullets */
+  flex: 1;
+  align-self: center;
 }
-
 /* Style each legend item (<li>) */
 .legend-item {
   display: flex;                    /* place swatch and text on one line */
@@ -322,7 +323,6 @@ dd {
   font-size: 0.95em;
   line-height: 1.2;
 }
-
 /* The color swatch itself */
 .legend-item .swatch {
   display: inline-block;
@@ -334,10 +334,20 @@ dd {
   flex-shrink: 0;                   /* keep consistent size */
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.15); /* subtle depth */
 }
-
 /* Make labels lighter */
 .legend-item em {
   font-style: normal;
   color: var(--color-neutral-40, #666);
   font-size: 0.9em;
+}
+
+/*Lab 5 Step 2.3*/
+.chart-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+  margin: 2em auto;
+  max-width: 700px;
 }
