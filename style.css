@@ -358,3 +358,7 @@ dd {
     opacity: 0.5;
   }
 }
+
+path {
+  transition: 300ms;
+}
