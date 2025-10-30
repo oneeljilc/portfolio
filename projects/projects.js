@@ -56,14 +56,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         .attr('fill', colors(idx))
         .attr('cursor', 'pointer')
         .on('click', () => {
-            selectedIndex = selectedIndex === i ? -1 : i;
+            selectedIndex = selectedIndex === idx ? -1 : idx;
             svg.selectAll('path')
                 .attr('class', (_, idx) => 
                 idx === selectedIndex ? 'selected' : null
                 );
             legend.selectAll('.legend-item')
                 .style('font-weight', (_, idx) => idx === selectedIndex ? 'bold' : 'normal')
-                .style('color', (_, idx) => idx === selectedIndex ? 'var(--color)' : 'inherit')
+            if (selectedIndex === -1) {
+              renderProjects(projects, projectsContainer, 'h2');
+            } else {
+              const selectedYear = data[selectedIndex].label;
+              const filtered = projects.filter((p) => p.year === selectedYear);
+              renderProjects(filtered, projectsContainer, 'h2')
+            }
 ;        });
     });
 
