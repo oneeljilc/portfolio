@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   let selectedIndex = -1;
-  
+
   // --- Pie chart rendering function ---
   function renderPieChart(projectsGiven) {
     // Clear old chart + legend
@@ -53,7 +53,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       svg
         .append('path')
         .attr('d', arcGenerator(d))
-        .attr('fill', colors(idx));
+        .attr('fill', colors(idx))
+        .on('click', () => {
+          //Code
+        });
     });
 
     // Draw legend
