@@ -54,9 +54,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         .append('path')
         .attr('d', arcGenerator(d))
         .attr('fill', colors(idx))
+        .attr('cursor', 'pointer')
         .on('click', () => {
-          //Code
-        });
+            selectedIndex = selectedIndex === i ? -1 : i;
+            svg.selectAll('path')
+                .attr('class', (_, idx) => 
+                idx === selectedIndex ? 'selected' : null
+                );
+            legend.selectAll('.legend-item')
+                .style('font-weight', (_, idx) => idx === selectedIndex ? 'bold' : 'normal')
+                .style('color', (_, idx) => idx === selectedIndex ? 'var(--color)' : 'inherit')
+;        });
     });
 
     // Draw legend
