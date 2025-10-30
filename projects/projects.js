@@ -84,18 +84,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderPieChart(filteredProjects);
   });
 });
-
-// Lab 5 Step 5.2
-let selectedIndex = -1;
-
-let svg = d3.select('svg');
-svg.selectAll('path').remove();
-arcs.forEach((arc, i) => {
-  svg
-    .append('path')
-    .attr('d', arc)
-    .attr('fill', colors(i))
-    .on('click', () => {
-      // What should we do? (Keep scrolling to find out!)
-    });
-});
