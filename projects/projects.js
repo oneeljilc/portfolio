@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     projectsTitle.textContent = '0 Projects';
   }
 
+  let selectedIndex = -1;
+  
   // --- Pie chart rendering function ---
   function renderPieChart(projectsGiven) {
     // Clear old chart + legend
