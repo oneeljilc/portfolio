@@ -396,3 +396,20 @@ path {
   border-bottom: 1px dotted currentColor;
   cursor: help;
 }
+ /* Lab 6 Step 2 Scatterplot */
+ .gridlines line {
+  stroke: var(--color-neutral-80, #ccc); /* light gray */
+  stroke-opacity: 0.3;                   /* subtle visibility */
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  stroke-width: 0;
+}
+
+.axis path,
+.axis line {
+  stroke: var(--color-neutral-60, #999);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
