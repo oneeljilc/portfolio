@@ -370,3 +370,29 @@ path {
     fill: var(--color);
   }
 }
+
+/* Lab 6 - Step 1.3 style Meta stats */
+.stats {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25em 1em;
+  margin-top: 1.5em;
+  font-family: system-ui, sans-serif;
+  font-size: 1.1rem;
+}
+
+.stats dt {
+  font-weight: 600;
+  color: var(--color-neutral-20, #333);
+}
+
+.stats dd {
+  margin: 0;
+  color: var(--color-neutral-40, #555);
+}
+
+.stats abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
