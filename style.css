@@ -510,3 +510,8 @@ circle:hover {
   transform: scale(1.5);
 }
 
+#commit-tooltip:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
+}
+
