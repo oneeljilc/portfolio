@@ -515,3 +515,24 @@ circle:hover {
   visibility: visible;
 }
 
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: red;
+  stroke: #222;
+  stroke-width: 2;
+  fill-opacity: 1;
+}
+
