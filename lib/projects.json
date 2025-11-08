@@ -1,26 +1,34 @@
 [
+        {
+        "title": "DSC 209R - Lab 7: Boston Bike Traffic",
+        "year": "2025",
+        "image": "/images/Screenshot_lab7.jpg",
+        "url": "https://oneeljilc.github.io/bike-traffic/",
+        "description": "The goal of this project is to visualize civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports."
+    },
+    {
+        "title": "DSC 209R - Project 3: Mapping Misconduct: NYPD Complaint Trends (1985–2019)",
+        "year": "2025",
+        "image": "/images/DSC209R_Project3.jpg",
+        "url": "https://oneeljilc.github.io/NYPD_misconduct_heatmap/",
+        "description": "The goal of this project is to visualize civilian complaints against the NYPD from 1985–2019 at the precinct level, allowing users to explore how complaint patterns changed over time and which areas experienced the highest concentration of reports."
+    },
     {
         "title": "DSC 209R - Project 1: Is Whole Foods really 'Whole Paycheck'?",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "/images/DSC209R_Project1.png",
         "description": "An expository visualization designed to communicate an idea based on a small grocery dataset consisting of different food items from three different major supermarket chains. Numpy & Pandas were used to manipulate the data and MatPlotLib & Seaborn were used for plotting."
     },
     {
         "title": "DSC 209R - Project 2: Deceptive Visualization of Abortion Data",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "/images/DSC209R_Project2.jpg",
         "description": "Two visualizations intended to persuade readers of opposite sides of a controversial proposition. Abortion data by U.S. State (collected by the Guttmacher Institute) was analyzed and plotted in order to address the proposition: 'States that lost abortion clinics saw the largest declines in abortion'."
-    },
-    {
-        "title": "DSC 209R - Project 3: TBD",
-        "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "TBD"
     },
     {
         "title": "DSC 232R - Final Project: '100 Million+ Steam Reviews'",
         "year": "2025",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "/images/DSC232R_final.png",
         "description": "Pyspark was used to analyze a large dataset of video game reviews and train two machine learning models. Model #1 consisted of a simple recommender system that used k-means to cluster games and users into 10 personas. Model #2 used a random forest regressor to predict a game's popularity based on the review text and game metadata."
     },
     {
@@ -28,12 +36,6 @@
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "A large dataset of wait times for Walt Disney World attractions is explored in order to answer three research questions: 1) When is the best time to visit the Magic Kingdom if you would like to minimize time waiting in lines?, 2) What are the top three factors that impact Magic Kingdom wait times?, and 3) Can Magic Kingdom wait times be predicted given other external information?. "
-    },
-    {
-        "title": "Corporis error ipsam nihil.",
-        "year": "2024",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Unde a sed fugiat quos cupiditate libero maxime repellendus itaque, omnis reprehenderit? Vero labore iure totam excepturi alias harum eos, quaerat id laudantium aliquam quos hic nesciunt explicabo est iusto."
     },
     {
         "title": "Inventore voluptatem blanditiis explicabo.",
