@@ -129,7 +129,7 @@ function createBrushSelector(svg) {
 function renderTooltipContent(commit) {
   const link = document.getElementById('commit-link');
   const date = document.getElementById('commit-date');
-  const time = document.getElementById('commit-time');
+  const time = document.getElementById('tooltip-commit-time');
   const author = document.getElementById('commit-author');
   const lines = document.getElementById('commit-lines');
   if (!commit || Object.keys(commit).length === 0) return;
@@ -284,6 +284,43 @@ function renderLanguageBreakdown(selection) {
 const data = await loadData();
 commits = processCommits(data);
 
+// ---------------------------------------------
+// Time filter setup
+// ---------------------------------------------
+let commitProgress = 100;
+
+let timeScale = d3.scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+
+let commitMaxTime = timeScale.invert(commitProgress);
+
+// Event handler
+function onTimeSliderChange() {
+  commitProgress = Number(document.getElementById("commit-progress").value);
+  commitMaxTime = timeScale.invert(commitProgress);
+
+  document.getElementById("commit-time").textContent =
+    commitMaxTime.toLocaleString("en", {
+      dateStyle: "long",
+      timeStyle: "short"
+    });
+}
+
+// Connect slider → handler
+document
+  .getElementById("commit-progress")
+  .addEventListener("input", onTimeSliderChange);
+
+// Initialize the display once
+onTimeSliderChange();
+
+// ---------------------------------------------
+// Now render the page
+// ---------------------------------------------
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 

@@ -535,3 +535,18 @@ circle.selected {
   fill-opacity: 1;
 }
 
+.commit-filter {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.commit-filter label {
+  flex: 1;
+}
+
+#commit-time {
+  margin-left: auto;
+  font-style: italic;
+}
+
