@@ -559,3 +559,23 @@ circle.selected {
   font-style: italic;
 }
 
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0.25em 1em; /* optional: spacing between rows/columns */
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+

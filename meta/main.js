@@ -368,10 +368,40 @@ function onTimeSliderChange() {
       timeStyle: "short",
     });
 
+  // Filter commits
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
+  // Collect lines
+  let lines = filteredCommits.flatMap((d) => d.lines);
+
+  // Group by file
+  let files = d3
+    .groups(lines, (d) => d.file)
+    .map(([name, lines]) => ({ name, lines }));
+
+  // -------------------------------
+  // Render files with D3
+  // -------------------------------
+  let filesContainer = d3
+    .select('#files')
+    .selectAll('div')
+    .data(files, (d) => d.name)
+    .join(
+      (enter) =>
+        enter.append('div').call((div) => {
+          div.append('dt').append('code');
+          div.append('dd');
+        })
+    );
+
+  filesContainer.select('dt > code').text((d) => d.name);
+  filesContainer.select('dd').text((d) => `${d.lines.length} lines`);
+
+  // Update scatter plot
   updateScatterPlot(data, filteredCommits);
 }
+
+
 
 // ---------------------------------------------
 // Render everything ONCE, THEN enable slider
