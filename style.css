@@ -9,9 +9,6 @@ html {
 }
 
 body {
-    /* Set line height to 1.5 times the font size
-    and use the OS's UI font as the website font
-    */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: auto;
@@ -291,56 +288,52 @@ dd {
   line-height: 1.5;
 }
 
-/* Lab 5 Step 1.1*/
+/* Lab 5 Step 1.1 */
 #projects-pie-plot {
   max-width: 20em;
   margin-block: 2em;
-
   overflow: visible;
 }
 
-/*Lab 5 Step 2.2: Style Legend*/
-/* Style the overall legend container */
+/* Legend styles */
 .legend {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr)); /* flexible layout */
-  gap: 0.5em;                         /* space between legend items */
+  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+  gap: 0.5em;
   padding: 1em;
   margin: 1.0em 0;
   border: 1px solid var(--color-neutral-70, #ccc);
   border-radius: 0.5em;
   background: var(--color-neutral-95, #f9f9f9);
-  list-style: none;                 /* remove bullets */
+  list-style: none;
   flex: 1;
   align-self: center;
 }
-/* Style each legend item (<li>) */
+
 .legend-item {
-  display: flex;                    /* place swatch and text on one line */
-  align-items: center;              /* vertically align swatch and label */
-  gap: 0.5em;                       /* space between swatch and text */
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
   font-size: 0.95em;
-  line-height: 1.2;
 }
-/* The color swatch itself */
+
 .legend-item .swatch {
   display: inline-block;
   width: 1em;
   height: 1em;
-  aspect-ratio: 1 / 1;              /* ensures perfect square */
-  background-color: var(--color);   /* color set dynamically by D3 */
-  border-radius: 3px;               /* slightly rounded corners */
-  flex-shrink: 0;                   /* keep consistent size */
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15); /* subtle depth */
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 }
-/* Make labels lighter */
+
 .legend-item em {
   font-style: normal;
   color: var(--color-neutral-40, #666);
   font-size: 0.9em;
 }
 
-/*Lab 5 Step 2.3*/
 .chart-container {
   display: flex;
   align-items: flex-start;
@@ -351,7 +344,6 @@ dd {
   max-width: 700px;
 }
 
-/* Lab 5 Step 5.1 */
 &:has(path:hover) {
   path:not(:hover) {
     opacity: 0.5;
@@ -364,41 +356,47 @@ path {
 
 .selected {
   --color: oklch(30.118% 0.00003 271.152) !important;
-
-  &:is(path) {
-    fill: var(--color);
-  }
 }
 
-/* Lab 6 - Step 1.3 style Meta stats */
-.stats {
-  display: grid;
-  grid-template-columns: max-content auto;
-  gap: 0.25em 1em;
+/* ----------------------------------------------------
+   SUMMARY STATS — FIXED TO INLINE ROW LAYOUT
+----------------------------------------------------- */
+
+#stats dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em 2em;
   margin-top: 1.5em;
-  font-family: system-ui, sans-serif;
   font-size: 1.1rem;
+  font-family: system-ui, sans-serif;
 }
 
-.stats dt {
-  font-weight: 600;
-  color: var(--color-neutral-20, #333);
-}
-
-.stats dd {
+#stats dt,
+#stats dd {
   margin: 0;
-  color: var(--color-neutral-40, #555);
+  padding: 0;
 }
 
-.stats abbr {
-  text-decoration: none;
-  border-bottom: 1px dotted currentColor;
-  cursor: help;
+#stats dt {
+  font-weight: 600;
+  color: #333;
 }
- /* Lab 6 Step 2 Scatterplot */
- .gridlines line {
-  stroke: var(--color-neutral-80, #ccc); /* light gray */
-  stroke-opacity: 0.3;                   /* subtle visibility */
+
+#stats dt::after {
+  content: ": ";
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+#stats dd {
+  color: #555;
+  margin-right: 1em;
+}
+
+/* Scatterplot */
+.gridlines line {
+  stroke: var(--color-neutral-80, #ccc);
+  stroke-opacity: 0.3;
   shape-rendering: crispEdges;
 }
 
@@ -413,92 +411,54 @@ path {
   shape-rendering: crispEdges;
 }
 
-/* Tooltips */
-/* --- Info definition list layout --- */
-dl.info {
-  display: grid;
-  grid-template-columns: auto 1fr;   /* labels on the left, values on the right */
-  gap: 0.25em 1em;
-  margin: 0;                         /* remove default browser margins */
-  font-family: system-ui, sans-serif;
-  background: var(--color-neutral-95, #f9f9f9);
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-neutral-85, #ddd);
-  border-radius: 0.5rem;
-  width: fit-content;
-}
+/* ----------------------------------------------------
+   COMMIT TOOLTIP — ORIGINAL STACKED LAYOUT
+----------------------------------------------------- */
 
-dl.info dt {
-  font-weight: 600;
-  color: var(--color-neutral-50, #666); /* slightly muted label */
-}
-
-dl.info dd {
-  margin: 0;                          /* remove default dd margins */
-  color: var(--color-neutral-10, #111);
-}
-
-/* --- Tooltip positioning --- */
-/* --- Tooltip visual styling (Step 3.2) --- */
 #commit-tooltip.tooltip {
   position: fixed;
   top: 1em;
   left: 1em;
-  /* Core look */
-  background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* subtle elevation */
-  border-radius: 0.5rem;                      /* rounded corners */
-  padding: 0.75rem 1rem;                      /* inner spacing */
-  border: 1px solid rgba(0, 0, 0, 0.1);       /* light outline */
-  backdrop-filter: blur(6px);                 /* frosted-glass effect */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  backdrop-filter: blur(6px);
   font-family: system-ui, sans-serif;
   font-size: 0.9rem;
   line-height: 1.4;
-  color: #222;
   z-index: 1000;
-  pointer-events: none;  /* prevent cursor flicker */
+  pointer-events: none;
+  opacity: 0;
   transition: opacity 0.2s ease-in-out;
-  opacity: 0; /* hidden until hover */
 }
 
-/* Definition list layout for all .info lists */
-dl.info {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.25em 1em;
-  margin: 0;
+#commit-tooltip:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
 }
 
-dl.info dt {
+#commit-tooltip dt {
   font-weight: 600;
   color: #555;
 }
 
-dl.info dd {
-  margin: 0;
+#commit-tooltip dd {
+  margin: 0 0 0.25em 0;
   color: #111;
 }
 
-dl.info a {
+#commit-tooltip a {
   color: steelblue;
   text-decoration: none;
 }
 
-dl.info a:hover {
+#commit-tooltip a:hover {
   text-decoration: underline;
 }
 
-dl.info {
-  /* ... other styles ... */
-  transition-duration: 500ms;
-  transition-property: opacity, visibility;
-}
-
-dl.info[hidden]:not(:hover, :focus-within) {
-  opacity: 0;
-  visibility: hidden;
-}
-
+/* SCATTERPLOT CIRCLES */
 circle {
   transition: 
     r 200ms ease,
@@ -514,34 +474,9 @@ circle {
     opacity: 0;
   }
 }
+
 circle:hover {
   transform: scale(1.5);
-}
-
-#commit-tooltip:not([hidden]) {
-  opacity: 1;
-  visibility: visible;
-}
-
-@keyframes marching-ants {
-  to {
-    stroke-dashoffset: -8; /* 5 + 3 */
-  }
-}
-
-.selection {
-  fill-opacity: 0.1;
-  stroke: black;
-  stroke-opacity: 0.7;
-  stroke-dasharray: 5 3;
-  animation: marching-ants 2s linear infinite;
-}
-
-circle.selected {
-  fill: red;
-  stroke: #222;
-  stroke-width: 2;
-  fill-opacity: 1;
 }
 
 .commit-filter {
@@ -559,10 +494,13 @@ circle.selected {
   font-style: italic;
 }
 
+/* ============================================================
+   FILE LIST + UNIT VISUALIZATION
+   ============================================================ */
 #files {
   display: grid;
   grid-template-columns: 1fr 4fr;
-  gap: 0.25em 1em; /* optional: spacing between rows/columns */
+  gap: 0.25em 1em;
 
   > div {
     grid-column: 1 / -1;
@@ -576,6 +514,77 @@ circle.selected {
 
   dd {
     grid-column: 2;
+    display: flex;            
+    flex-wrap: wrap;
+    gap: 0.2em;
+    margin: 0;
+  }
+
+  dt small {
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.7;
+    margin-top: 0.1em;
   }
 }
+
+.loc {
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color, steelblue);
+  margin: 0.1em;
+}
+
+#files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+/* ------------------------------------------
+   SUMMARY STATS BOX
+------------------------------------------- */
+#stats {
+  border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
+  background-color: color-mix(in srgb, Canvas 92%, CanvasText 4%);
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Keep the inline layout you already have */
+#stats dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em 2em;
+  font-size: 1rem;
+}
+
+#stats dt,
+#stats dd {
+  margin: 0;
+  padding: 0;
+}
+
+#stats dt {
+  font-weight: 600;
+  color: color-mix(in srgb, CanvasText 60%, black);
+}
+
+#stats dt::after {
+  content: ": ";
+}
+
+#stats dd {
+  color: color-mix(in srgb, CanvasText 70%, black);
+}
+
 
