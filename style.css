@@ -1,484 +1,146 @@
 html {
-    --color-accent: oklch(43.656% 0.12311 250.73);
-    accent-color: var(--color-accent);
+  --color-accent: oklch(43.656% 0.12311 250.73);
+  accent-color: var(--color-accent);
+  color-scheme: light dark;
 
-    color-scheme: light dark;
-
-    background-color: Canvas;
-    color: CanvasText
+  background-color: Canvas;
+  color: CanvasText;
 }
 
 body {
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: auto;
-    padding: 1.5rem 1rem;
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 1.5rem 1rem;
 }
 
-/*----Navigation----*/
+/* ---------------- Navigation ---------------- */
 nav ul,
 nav li {
-    display: contents;
+  display: contents;
 }
 
 nav {
-    display: flex;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid oklch(80% 3% 200);
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid oklch(80% 3% 200);
 }
 
 nav a {
-    flex: 1;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    padding: 0.5em;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
 }
 
 nav a.current {
-    border-bottom: 0.4em solid var(--color-accent);
-    font-weight: bold;
+  border-bottom: 0.4em solid var(--color-accent);
+  font-weight: bold;
 }
 
 nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-/*----Contacts_Page----*/
-form {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1em 0.5em;
-}
-
-label {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
-}
-
-label input, label textarea {
-    font: inherit;
-    grid-column: 2;
-    width: 100%;
-}
-
-button {
-    grid-column: 1 / -1;
-    font: inherit;
-    width: 100%;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
-}
-
-.projects article {
-    display: grid;
-    grid-row: span 3;
-}
-
-.projects article h2 {
-    margin: 0;
-}
-
+/* ---------------- Headings ---------------- */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    line-height: 1.1;
-    text-wrap: balance;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
-h1 {
-    font-size: 300%;
-}
-
-h2 {
-    font-size: 200%;
-}
-
-h3 {
-    font-size: 150%;
-}
-
-h4 {
-    font-size: 120%;
-}
-
-h5 {
-    font-size: 100%;
-}
-
-h6 {
-    font-size: 90%;
-}
-
-/*----CV_HEADER----*/
-.cv-header {
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.cv-header h1 {
-  margin-bottom: 0.25em;
-}
-
-.cv-header p {
-  margin: 0;
-  font-size: 1rem;
-  color: oklch(40% 0 0);
-}
-
-/*----CV_SECTIONS----*/
-.cv-section {
-  margin-block: 2rem;
-}
-
-.cv-section h2 {
-  border-bottom: 2px solid var(--color-accent);
-  padding-bottom: 0.25em;
-  margin-bottom: 1rem;
-}
-
-/*----CV_EDUCATION----*/
-dl {
-  margin: 0;
-}
-
-dt {
-  font-weight: 600;
-}
-
-dd {
-  margin: 0 0 1rem 0;
-  color: oklch(35% 0 0);
-}
-
-/*----CV_EXPERIENCE----*/
-.experience h3 {
-  margin-bottom: 0;
-}
-
-.location {
-  font-size: 0.9rem;
-  color: oklch(40% 0 0);
-  margin-bottom: 1rem;
-}
-
-.experience article {
-  margin-bottom: 1.5rem;
-}
-
-.experience h4 {
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-top: 0;
   margin-bottom: 0.5em;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.1rem;
 }
 
-.date-range {
-  font-weight: normal;
-  color: oklch(45% 0 0);
-}
+h1 { font-size: 300%; }
+h2 { font-size: 200%; }
+h3 { font-size: 150%; }
+h4 { font-size: 120%; }
+h5 { font-size: 100%; }
+h6 { font-size: 90%; }
 
-.experience ul {
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-/*----CV_PUBLICATIONS----*/
-.pub-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.pub-list li {
-  margin-bottom: 0.75rem;
-}
-
-.pub-list a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
-
-.pub-list a:hover {
-  text-decoration: underline;
-}
-
-/*----CV_SKILLS----*/
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  list-style: none;
-  padding: 0;
-}
-
-.skills-list li {
-  background: oklch(92% 0.02 240);
-  padding: 0.25em 0.75em;
-  border-radius: 0.25em;
-  font-size: 0.95rem;
-}
-
-/*--Dark Mode Switch--*/
-.color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 80%;
-  font-family: inherit;
-}
-
-/*--Github Stats--*/
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5em;
-  text-align: center;
-}
-
-#profile-stats dt {
-  grid-row: 1;
-  font-weight: 600;
-  color: color-mix(in srgb, CanvasText 90%, white);
-}
-
-#profile-stats dd {
-  grid-row: 2;
-  margin: 0;
-  font-size: 1.1em;
-  color: color-mix(in srgb, CanvasText 80%, white);
-}
-
-.github-stats h2 {
-  text-align: center;
-}
-
-.github-stats {
-  border: 1px solid color-mix(in srgb, CanvasTest 30%, transparent);
-  background-color: color-mix(in srgb, Canvas 90%, CanvasText 5%);
-  border-radius: 10px;
-  padding: 1.5em;
-  margin: 2em auto;
-  max-width: 700px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Wrap Bio Text around pic */
-.profile-pic {
-  float: left;
-  margin: 0 1.5em 1em 0;
-  width: 330px;
-  height: auto;
-  border-radius: 8px;
-}
-
-.bio p {
-  text-align: justify;
-  line-height: 1.5;
-}
-
-/* Lab 5 Step 1.1 */
-#projects-pie-plot {
-  max-width: 20em;
-  margin-block: 2em;
-  overflow: visible;
-}
-
-/* Legend styles */
-.legend {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
-  gap: 0.5em;
-  padding: 1em;
-  margin: 1.0em 0;
-  border: 1px solid var(--color-neutral-70, #ccc);
-  border-radius: 0.5em;
-  background: var(--color-neutral-95, #f9f9f9);
-  list-style: none;
-  flex: 1;
-  align-self: center;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  font-size: 0.95em;
-}
-
-.legend-item .swatch {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  aspect-ratio: 1 / 1;
-  background-color: var(--color);
-  border-radius: 3px;
-  flex-shrink: 0;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-}
-
-.legend-item em {
-  font-style: normal;
-  color: var(--color-neutral-40, #666);
-  font-size: 0.9em;
-}
-
-.chart-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2em;
-  flex-wrap: wrap;
-  margin: 2em auto;
-  max-width: 700px;
-}
-
-&:has(path:hover) {
-  path:not(:hover) {
-    opacity: 0.5;
-  }
-}
-
-path {
-  transition: 300ms;
-}
-
-.selected {
-  --color: oklch(30.118% 0.00003 271.152) !important;
-}
-
-/* ----------------------------------------------------
-   SUMMARY STATS — FIXED TO INLINE ROW LAYOUT
------------------------------------------------------ */
-
+/* ---------------- Stats Summary Box ---------------- */
 #stats dl {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75em 2em;
-  margin-top: 1.5em;
-  font-size: 1.1rem;
-  font-family: system-ui, sans-serif;
-}
-
-#stats dt,
-#stats dd {
-  margin: 0;
-  padding: 0;
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.35em 1em;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(80% 0 0);
+  background: oklch(98% 0 0);
 }
 
 #stats dt {
   font-weight: 600;
-  color: #333;
-}
-
-#stats dt::after {
-  content: ": ";
-  font-weight: normal;
-  opacity: 0.9;
+  color: oklch(30% 0 0);
 }
 
 #stats dd {
-  color: #555;
-  margin-right: 1em;
+  margin: 0;
+  color: oklch(40% 0 0);
 }
 
-/* Scatterplot */
-.gridlines line {
-  stroke: var(--color-neutral-80, #ccc);
-  stroke-opacity: 0.3;
-  shape-rendering: crispEdges;
-}
-
-.gridlines path {
-  stroke-width: 0;
-}
-
-.axis path,
-.axis line {
-  stroke: var(--color-neutral-60, #999);
-  stroke-width: 1;
-  shape-rendering: crispEdges;
-}
-
-/* ----------------------------------------------------
-   COMMIT TOOLTIP — ORIGINAL STACKED LAYOUT
------------------------------------------------------ */
-
-#commit-tooltip.tooltip {
+/* ---------------- Tooltip ---------------- */
+#commit-tooltip {
   position: fixed;
   top: 1em;
   left: 1em;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   backdrop-filter: blur(6px);
-  font-family: system-ui, sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  font-size: 0.9rem;
 }
 
-#commit-tooltip:not([hidden]) {
-  opacity: 1;
-  visibility: visible;
+#commit-tooltip[hidden] {
+  opacity: 0;
+  visibility: hidden;
 }
 
 #commit-tooltip dt {
   font-weight: 600;
-  color: #555;
 }
 
 #commit-tooltip dd {
-  margin: 0 0 0.25em 0;
-  color: #111;
+  margin: 0 0 0.3rem 0;
 }
 
-#commit-tooltip a {
-  color: steelblue;
-  text-decoration: none;
+/* ---------------- Scatterplot ---------------- */
+.gridlines line {
+  stroke: var(--color-neutral-80, #ccc);
+  stroke-opacity: 0.3;
 }
 
-#commit-tooltip a:hover {
-  text-decoration: underline;
-}
-
-/* SCATTERPLOT CIRCLES */
 circle {
   transition: 
     r 200ms ease,
     cx 200ms ease,
     cy 200ms ease,
     opacity 200ms ease;
-
   transform-origin: center;
-  transform-box: fill-box;
-
-  @starting-style {
-    r: 0;
-    opacity: 0;
-  }
 }
 
 circle:hover {
   transform: scale(1.5);
 }
 
+circle.selected {
+  fill: red;
+  stroke: #222;
+  stroke-width: 2;
+  fill-opacity: 1;
+}
+
+/* ---------------- Commit Filter ---------------- */
 .commit-filter {
   display: flex;
   align-items: baseline;
@@ -494,46 +156,23 @@ circle:hover {
   font-style: italic;
 }
 
-/* ============================================================
-   FILE LIST + UNIT VISUALIZATION
-   ============================================================ */
+/* ---------------- FILE LIST + UNIT VISUALIZATION ---------------- */
 #files {
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 0.25em 1em;
-
-  > div {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: subgrid;
-  }
-
-  dt {
-    grid-column: 1;
-  }
-
-  dd {
-    grid-column: 2;
-    display: flex;            
-    flex-wrap: wrap;
-    gap: 0.2em;
-    margin: 0;
-  }
-
-  dt small {
-    display: block;
-    font-size: 0.75em;
-    opacity: 0.7;
-    margin-top: 0.1em;
-  }
+  margin-top: 1.5rem;
 }
 
-.loc {
-  width: 0.5em;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--color, steelblue);
-  margin: 0.1em;
+#files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#files dt {
+  grid-column: 1;
+  font-weight: 600;
 }
 
 #files dd {
@@ -544,47 +183,59 @@ circle:hover {
   align-content: start;
   gap: 0.15em;
   padding-top: 0.6em;
-  margin-left: 0;
-}
-
-/* ------------------------------------------
-   SUMMARY STATS BOX
-------------------------------------------- */
-#stats {
-  border: 1px solid color-mix(in srgb, CanvasText 20%, transparent);
-  background-color: color-mix(in srgb, Canvas 92%, CanvasText 4%);
-  padding: 1rem 1.25rem;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-/* Keep the inline layout you already have */
-#stats dl {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75em 2em;
-  font-size: 1rem;
-}
-
-#stats dt,
-#stats dd {
   margin: 0;
-  padding: 0;
 }
 
-#stats dt {
+.loc {
+  display: inline-block;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+}
+
+/* ---------------- Scrollytelling Layout ---------------- */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story .step {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 1rem;
+  height: 50vh;
+  overflow: visible;
+}
+
+#scatter-story p {
+  margin: 0 0 0.75rem 0;
+}
+
+/* ---------------- Language breakdown ---------------- */
+#language-breakdown {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.25em 1em;
+}
+
+#language-breakdown dt {
   font-weight: 600;
-  color: color-mix(in srgb, CanvasText 60%, black);
 }
 
-#stats dt::after {
-  content: ": ";
+#language-breakdown dd {
+  margin: 0;
 }
 
-#stats dd {
-  color: color-mix(in srgb, CanvasText 70%, black);
-}
 
 
